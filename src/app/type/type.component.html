@@ -1,0 +1,57 @@
+<div class="example-container">
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/pokemon']"><mat-icon>list</mat-icon></a>
+  </div>
+  <div>
+    <header id="pokeHeader">
+
+      <div class="headerBody" [ngStyle]="{'background-color':typeColor}">
+        <mat-card-title><h2>{{ Name | titlecase}}</h2></mat-card-title>
+      </div>
+    </header>
+  </div>
+    <div style="display: inline-flex; width:100%">
+      <div class="pokeInformation">
+        <dl >
+
+          <div *ngIf="StrongHit.length!==0">Double damage against</div>
+          <dd>
+            <a  href = "/type/{{ type.name }}" *ngFor="let type of StrongHit"><div> {{type.name | titlecase}} </div></a>
+          </dd>
+          <div *ngIf="StrongDef.length!==0">Half damage from</div>
+          <dd>
+            <a  href = "/type/{{ type.name }}" *ngFor="let type of StrongDef"><div> {{type.name | titlecase}} </div></a>
+          </dd>
+          <div *ngIf="Immune.length!==0">Immune To</div>
+          <dd>
+            <a href = "/type/{{ type.name }}" *ngFor="let type of Immune"><div> {{type.name | titlecase}} </div></a>
+          </dd>
+          <div *ngIf="WeakDef.length!==0">Double damage from</div>
+          <dd>
+            <a href = "/type/{{ type.name }}" *ngFor="let type of WeakDef"><div> {{type.name | titlecase}} </div></a>
+          </dd>
+          <div *ngIf="WeakHit.length!==0">Half damage against</div>
+          <dd>
+            <a href = "/type/{{ type.name }}" *ngFor="let type of WeakHit"><div> {{type.name | titlecase}} </div></a>
+          </dd>
+          <div *ngIf="NoHit.length!==0">Can't Hit</div>
+          <dd>
+            <a href = "/type/{{ type.name }}" *ngFor="let type of NoHit"><div> {{type.name | titlecase}} </div></a>
+          </dd>
+        </dl>
+      </div>
+      <div class="pokeInformation">
+        <div>Pokemon with this type</div>
+        <dd class="outerScrollBox">
+          <div class="innerScrollBox">
+           <a  *ngFor="let pokemon of Pokemon" href ="/pokemon-details/{{pokemon.pokemon.name}}"><div class="moves"> {{pokemon.pokemon.name | titlecase}} </div></a>
+          </div>
+        </dd>
+        <dd class="outerScrollBox">
+          <div class="innerScrollBox">
+            <a  *ngFor="let move of this.moves" [routerLink]="['/move/', move.url]"><div class="moves"> {{move.name | titlecase}} </div></a>
+          </div>
+        </dd>
+      </div>
+    </div>
+  </div>

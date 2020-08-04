@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+html, body
+    height: 100%
+    cursor:default
+    overflow-x:hidden
+
+body
+  margin: 0
+  font-family: Roboto, "Helvetica Neue", sans-serif
+
+@import "app/abilities/abilities.component", "app/pokemon/pokemon.component", "app/pokemon-detail/pokemon-detail.component"
+.headerBody
+  width: 100%
+  color: white
+  padding: 5px 0px 8px 5px
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+
+
+.type
+  color: white
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+  border: white 2px solid
+  border-radius: 5px
+  margin: 5px
+  padding: 3px
+  width: fit-content
+  min-width: 40px
+  text-align: center
+
+#types
+  a
+    text-decoration: none
+
+
+
+//noinspection CssInvalidPropertyValue
+.outerScrollBox
+  margin: 2px
+  height: 600px
+  border: 1px black solid
+  overflow: hidden
+  position: relative
+
+.innerScrollBox
+  position: absolute
+  top: 0px
+  bottom: 0px
+  left: 0px
+  right: -15px
+  overflow: auto
